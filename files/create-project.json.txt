@@ -1,0 +1,19 @@
+{
+  "name": "devops-webapp-project",
+  "source": {
+    "type": "CODECOMMIT",
+    "location": "https://git-codecommit.<<REPLACE-YOUR-REGION-ID>>.amazonaws.com/v1/repos/WebAppRepo"
+  },
+  "artifacts": {
+    "type": "S3",
+    "location": "<<REPLACE-YOUR-S3-OUTPUT-BUCKET-NAME>>",
+    "packaging": "ZIP",
+    "name": "WebAppOutputArtifact.zip"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/java:openjdk-8",
+    "computeType": "BUILD_GENERAL1_SMALL"
+  },
+  "serviceRole": "<<REPLACE-YOUR-BuildRole-ARN>>"
+}
